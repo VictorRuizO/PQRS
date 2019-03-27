@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.EncargadoDependencia;
@@ -26,8 +27,8 @@ import persistencia.exceptions.PreexistingEntityException;
  */
 public class EncargDepJpaController implements Serializable {
 
-    public EncargDepJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public EncargDepJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("PQRSPU");
     }
     private EntityManagerFactory emf = null;
 

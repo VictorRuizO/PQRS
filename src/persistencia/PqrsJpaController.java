@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import modelo.Pqrs;
 import persistencia.exceptions.NonexistentEntityException;
 
@@ -26,8 +27,8 @@ import persistencia.exceptions.NonexistentEntityException;
  */
 public class PqrsJpaController implements Serializable {
 
-    public PqrsJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public PqrsJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("PQRSPU");
     }
     private EntityManagerFactory emf = null;
 

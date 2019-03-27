@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import modelo.EncargDep;
 import modelo.EncargadoDependencia;
 import persistencia.exceptions.IllegalOrphanException;
@@ -27,8 +28,8 @@ import persistencia.exceptions.PreexistingEntityException;
  */
 public class EncargadoDependenciaJpaController implements Serializable {
 
-    public EncargadoDependenciaJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public EncargadoDependenciaJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("PQRSPU");
     }
     private EntityManagerFactory emf = null;
 

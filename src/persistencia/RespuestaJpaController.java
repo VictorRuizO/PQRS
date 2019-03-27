@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.Pqrs;
@@ -24,8 +25,8 @@ import persistencia.exceptions.NonexistentEntityException;
  */
 public class RespuestaJpaController implements Serializable {
 
-    public RespuestaJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public RespuestaJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("PQRSPU");
     }
     private EntityManagerFactory emf = null;
 

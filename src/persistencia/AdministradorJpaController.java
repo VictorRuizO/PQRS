@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.Administrador;
@@ -23,8 +24,8 @@ import persistencia.exceptions.PreexistingEntityException;
  */
 public class AdministradorJpaController implements Serializable {
 
-    public AdministradorJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public AdministradorJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("PQRSPU");
     }
     private EntityManagerFactory emf = null;
 
