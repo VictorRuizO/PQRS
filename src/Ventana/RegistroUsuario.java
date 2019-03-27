@@ -5,7 +5,8 @@
  */
 package Ventana;
 
-import java.util.Date;
+
+import java.sql.Date;
 import logica.RegistroUsuarioLogica;
 
 /**
@@ -305,7 +306,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Accion registar
-        Date fecha = new Date(Integer.parseInt(ano.getText()),
+        Date fecha = new Date(Integer.parseInt(ano.getText())-1900,
                 Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText()));
         
         usuLog.registrarUsuario(docId.getText(),
@@ -313,6 +314,8 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 fecha, eps.getText(), direccion.getText(),
                 telefono.getText(), password.getText(),
                 tipoDi.getItemAt(tipoDi.getSelectedIndex()));
+        
+        System.out.println(""+Integer.parseInt(ano.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
