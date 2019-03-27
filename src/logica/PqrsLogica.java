@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Dependencia;
 import modelo.Pqrs;
+import modelo.Usuario;
 import persistencia.*;
 
 /**
@@ -21,14 +22,23 @@ public class PqrsLogica {
     
     private DependenciaJpaController depen = new DependenciaJpaController();
     private PqrsJpaController pqr = new PqrsJpaController();
-    private UsuarioJpaController use = new UsuarioJpaController();
     
     public PqrsLogica(){
         
     }
     
-    public void registroPqrs(String titulo, String decripcion, String tipo,String dep) {
+    public void registroPqrs(String titulo, String decripcion, String tipo,Usuario usu,Dependencia dep) {
+        Pqrs pq = new Pqrs();
+        pq.setTitulo(titulo);
+        pq.setDecripcion(decripcion);
+        pq.setTipo(tipo);
+        pq.setFecha(new Date());
+        pq.setDniUsuario(usu);
+        pq.setCodigoDependencia(dep);
         
+        pqr.create(pq);
+        
+        JOptionPane.showMessageDialog(null, "Su "+tipo+" fue registrada exitosamente");
     }
     
 }
