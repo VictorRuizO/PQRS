@@ -154,9 +154,9 @@ public class realizarPQRS extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        vistaUsuario obj=new vistaUsuario();
+        /*vistaUsuario obj=new vistaUsuario();
         obj.setVisible(true);
-        dispose();
+        dispose();*/
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

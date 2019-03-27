@@ -7,7 +7,9 @@ package Ventana;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import logica.EncargadoLogica;
 import logica.UsuarioLogica;
+import modelo.EncargadoDependencia;
 import modelo.Usuario;
 
 /**
@@ -123,14 +125,25 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        Usuario usu = usuLog.getUsuario(usuario.getText(), password.getText());
-        if(usu!=null){
-            vistaUsuario obj=new vistaUsuario();
-            obj.setVisible(true);
-            dispose(); 
-            return;
-        }
         
+        if(usuLog.verificarUsuario(usuario.getText())){
+            Usuario usu = usuLog.getUsuario(usuario.getText(), password.getText());
+        
+            if(usu!=null){
+                vistaUsuario obj=new vistaUsuario(usu);
+                obj.setVisible(true);
+                dispose(); 
+                return;
+            }
+        }else if(encLog.verificarEncargado(usuario.getText())){
+            EncargadoDependencia enc = encLog.getEncargado(usuario.getText(), password.getText());
+        
+            if(enc!=null){
+                vistaEncargado obj=new vistaEncargado(enc);
+                obj.setVisible(true);
+                dispose();
+            }
+        }
         
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
@@ -192,4 +205,5 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
     private UsuarioLogica usuLog=new UsuarioLogica();
+    private EncargadoLogica encLog=new EncargadoLogica();
 }

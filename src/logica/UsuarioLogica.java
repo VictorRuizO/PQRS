@@ -33,4 +33,11 @@ public class UsuarioLogica {
         return null;
     }
     
+    public boolean verificarUsuario(String di){
+        Usuario usu=usuCon.findUsuario(di);
+        if(usu==null)
+            return false;
+        return true;
+    }
+    
 }
