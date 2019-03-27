@@ -26,7 +26,7 @@ public class RegistroUsuarioLogica {
         
     }
     
-    public void registrarUsuario(String di, String nom, String ape, Date fechaN, String eps, String dir, String tel, String pass,String tipo){
+    public boolean registrarUsuario(String di, String nom, String ape, Date fechaN, String eps, String dir, String tel, String pass,String tipo){
         Usuario usu=new Usuario();
         usu.setDni(di);
         usu.setNombres(nom);
@@ -40,9 +40,12 @@ public class RegistroUsuarioLogica {
         try {
             contUsu.create(usu);
             JOptionPane.showMessageDialog(null, "Usuario registrado con exito");
+            return false;
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error al registrar usuario");
         }
+        
+        return true;
         
     }
 }

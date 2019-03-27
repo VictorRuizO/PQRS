@@ -309,13 +309,17 @@ public class RegistroUsuario extends javax.swing.JFrame {
         Date fecha = new Date(Integer.parseInt(ano.getText())-1900,
                 Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText()));
         
-        usuLog.registrarUsuario(docId.getText(),
+        boolean error=usuLog.registrarUsuario(docId.getText(),
                 nombres.getText(), apellidos.getText(),
                 fecha, eps.getText(), direccion.getText(),
                 telefono.getText(), password.getText(),
                 tipoDi.getItemAt(tipoDi.getSelectedIndex()));
         
-        System.out.println(""+Integer.parseInt(ano.getText()));
+        if(!error){
+            Interfaz obj=new Interfaz();
+            obj.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed

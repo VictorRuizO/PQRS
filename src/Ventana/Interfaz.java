@@ -7,6 +7,8 @@ package Ventana;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import logica.UsuarioLogica;
+import modelo.Usuario;
 
 /**
  *
@@ -39,8 +41,8 @@ public class Interfaz extends javax.swing.JFrame {
         jLabelUv = new javax.swing.JLabel();
         jLabelUser = new javax.swing.JLabel();
         jLabelPass = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        password = new javax.swing.JPasswordField();
+        usuario = new javax.swing.JTextField();
         jButtonIngresar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabelFondo = new javax.swing.JLabel();
@@ -74,21 +76,21 @@ public class Interfaz extends javax.swing.JFrame {
         jLabelPass.setText("Contraseña: ");
         getContentPane().add(jLabelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                passwordActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 170, -1));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 170, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        usuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                usuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 170, -1));
+        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 170, -1));
 
         jButtonIngresar.setText("Ingresar");
         jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -116,32 +118,20 @@ public class Interfaz extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_passwordActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        String usuario;
-        usuario = String.valueOf(jTextField1.getText());   
-        if("Admin".equals(usuario) || "admin".equals(usuario)){
-        vistaAdministrador obj=new vistaAdministrador();
-        obj.setVisible(true);
-        dispose();
+        Usuario usu = usuLog.getUsuario(usuario.getText(), password.getText());
+        if(usu!=null){
+            vistaUsuario obj=new vistaUsuario();
+            obj.setVisible(true);
+            dispose(); 
+            return;
         }
-        if("Diana".equals(usuario) || "diana".equals(usuario)){
-        vistaUsuario obj=new vistaUsuario();
-        obj.setVisible(true);
-        dispose();
-        }
-        if("Victor".equals(usuario) || usuario.equals("Alex") || "alex".equals(usuario) || "victor".equals(usuario)){
-        vistaEncargado obj=new vistaEncargado();
-        obj.setVisible(true);
-        dispose();
-        }
-        else if(!("Diana".equals(usuario) || "diana".equals(usuario) || "Victor".equals(usuario) || usuario.equals("Alex")
-                || "alex".equals(usuario) || "victor".equals(usuario) || "Admin".equals(usuario) || "admin".equals(usuario))){
-        JOptionPane.showMessageDialog(rootPane, "Usuario no registrado");
-        }
+        
+        
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -150,9 +140,9 @@ public class Interfaz extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_usuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,7 +188,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPass;
     private javax.swing.JLabel jLabelUser;
     private javax.swing.JLabel jLabelUv;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
+    private UsuarioLogica usuLog=new UsuarioLogica();
 }
