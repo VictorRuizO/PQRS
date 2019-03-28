@@ -35,10 +35,19 @@ public class PqrsLogica {
         pq.setFecha(new Date());
         pq.setDniUsuario(usu);
         pq.setCodigoDependencia(dep);
+        int codigo;
+        try {
+            codigo=pqr.create2(pq);
+            JOptionPane.showMessageDialog(null, "Su "+tipo+" fue registrada exitosamente\nEl código es: "+codigo);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error al registrar la PQRS\n"+ex.getMessage());
+        }
         
-        pqr.create(pq);
         
-        JOptionPane.showMessageDialog(null, "Su "+tipo+" fue registrada exitosamente");
+    }
+    
+    public Pqrs obtenerPqrs(int cod){
+        return pqr.findPqrs(cod);
     }
     
 }

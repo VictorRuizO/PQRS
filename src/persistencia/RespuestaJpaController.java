@@ -6,6 +6,7 @@
 package persistencia;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -151,6 +152,16 @@ public class RespuestaJpaController implements Serializable {
 
     public List<Respuesta> findRespuestaEntities() {
         return findRespuestaEntities(true, -1, -1);
+    }
+    
+    public List<Respuesta> findRespuestaEntities(Pqrs pq){
+        List<Respuesta> original = findRespuestaEntities();
+        List<Respuesta> fina = new ArrayList<>();
+        for(Respuesta r:original){
+            if(r.getCodPqrs().getCodigo()==pq.getCodigo())
+                fina.add(r);
+        }
+        return fina;
     }
 
     public List<Respuesta> findRespuestaEntities(int maxResults, int firstResult) {

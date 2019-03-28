@@ -35,6 +35,17 @@ public class PqrsJpaController implements Serializable {
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
+    
+    public int create2(Pqrs pqrs) throws NonexistentEntityException, Exception{
+        EntityManager em = null;
+        em = getEntityManager();
+        em.getTransaction().begin();
+        em.persist(pqrs);
+        em.flush();
+        em.getTransaction().commit();
+        em.close();
+        return pqrs.getCodigo();
+    }
 
     public void create(Pqrs pqrs) {
         if (pqrs.getRespuestaList() == null) {
