@@ -5,7 +5,9 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -48,6 +50,20 @@ public class PqrsLogica {
     
     public Pqrs obtenerPqrs(int cod){
         return pqr.findPqrs(cod);
+    }
+    
+    public Dependencia obtenerCodDep(int cod){
+        return pqr.findPqrs(cod).getCodigoDependencia();
+    }
+    
+    public List<String> obtenerPqrsEncargado(String dep){
+        List<Pqrs> pqrss = pqr.findPqrsEntities();
+        List<String> Lpqrs = new ArrayList<>();
+        for(Pqrs p:pqrss){
+            if(p.getCodigoDependencia().getCodigo().equals(dep))
+                Lpqrs.add(""+p.getCodigo());
+        }
+        return Lpqrs;
     }
     
 }

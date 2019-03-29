@@ -6,6 +6,7 @@
 package Ventana;
 
 import modelo.EncargadoDependencia;
+import logica.EncargadoLogica;
 
 /**
  *
@@ -89,7 +90,7 @@ public class vistaEncargado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        responderPQRSE obj=new responderPQRSE();
+        responderPQRSE obj=new responderPQRSE(encargadoRegistrado);
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -115,4 +116,5 @@ public class vistaEncargado extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     // End of variables declaration//GEN-END:variables
     private EncargadoDependencia encargadoRegistrado;
+    private EncargadoLogica encargLog = new EncargadoLogica();
 }

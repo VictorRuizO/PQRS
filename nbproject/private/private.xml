@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/Interfaz.java</file>
-            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/logica/DependenciaLogica.java</file>
-            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/realizarPQRS.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/logica/RespuestaLogica.java</file>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/vistaUsuario.java</file>
-            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/persistencia/PqrsJpaController.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/consultarRespuestasU.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/VistaRespuesta.java</file>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/logica/PqrsLogica.java</file>
         </group>
     </open-files>

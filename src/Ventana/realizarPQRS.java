@@ -97,6 +97,11 @@ public class realizarPQRS extends javax.swing.JFrame {
         });
 
         dependencia.setModel(dependencias);
+        dependencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dependenciaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,6 +195,10 @@ public class realizarPQRS extends javax.swing.JFrame {
         dispose();
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void dependenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dependenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dependenciaActionPerformed
 
     /**
      * @param args the command line arguments

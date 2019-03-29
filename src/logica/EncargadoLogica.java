@@ -5,8 +5,13 @@
  */
 package logica;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.EncargDep;
+import modelo.EncargDepPK;
 import modelo.EncargadoDependencia;
+import persistencia.EncargDepJpaController;
 import persistencia.EncargadoDependenciaJpaController;
 
 /**
@@ -16,6 +21,7 @@ import persistencia.EncargadoDependenciaJpaController;
 public class EncargadoLogica {
     
     private EncargadoDependenciaJpaController encCont=new EncargadoDependenciaJpaController();
+    private EncargDepJpaController endCont =new EncargDepJpaController();
     
     public EncargadoLogica(){
         
@@ -38,6 +44,19 @@ public class EncargadoLogica {
         if(enc==null)
             return false;
         return true;
+    }
+    
+    public String obtenerCodDepsString(EncargadoDependencia en){
+        List<EncargDep> encargs = endCont.findEncargDepEntities();
+        String depasig = "";
+        
+        for(EncargDep e:encargs){
+            if (e.getEncargDepPK().getDlEncargado().equals(en.getDocumentoLaboral()))
+                if(e.getEstado().equals("activo"))
+                    depasig = e.getEncargDepPK().getCodigoDep();
+        }
+        
+        return depasig;
     }
     
 }

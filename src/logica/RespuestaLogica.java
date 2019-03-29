@@ -5,11 +5,15 @@
  */
 package logica;
 
+import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import modelo.Pqrs;
 import modelo.Respuesta;
+import modelo.EncargadoDependencia;
 import persistencia.PqrsJpaController;
 import persistencia.RespuestaJpaController;
+import persistencia.EncargadoDependenciaJpaController;
 
 /**
  *
@@ -25,6 +29,20 @@ public class RespuestaLogica {
     
     public List<Respuesta> obtenerRespuestas(Pqrs pq){
         return resCont.findRespuestaEntities(pq);
+    }
+    
+    public void registroRespuesta( Date hora, Date fecha ,String descripcion, Pqrs codpqrs, EncargadoDependencia encargado) {
+        Respuesta res = new Respuesta();
+        res.setDescripcion(descripcion);
+        res.setFecha(fecha);
+        res.setHora(hora);
+        res.setCodPqrs(codpqrs);
+        res.setEncargado(encargado);
+        
+        resCont.create(res);
+        
+        JOptionPane.showMessageDialog(null, "Su respuesta fue registrada exitosamente");
+        
     }
     
 }
