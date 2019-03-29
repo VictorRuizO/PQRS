@@ -331,11 +331,11 @@ public class RegistroUsuario extends javax.swing.JFrame {
                     tipoDi.getItemAt(tipoDi.getSelectedIndex()));
 
             if(!error){
-                JOptionPane.showMessageDialog(null, "Registro exitoso");
                 Interfaz obj=new Interfaz();
                 obj.setVisible(true);
                 dispose();
             }
+            
             if(error)
                 JOptionPane.showMessageDialog(null, "Registro fallido");
         }
