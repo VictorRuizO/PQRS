@@ -67,6 +67,7 @@ public class VistaRespuesta extends javax.swing.JFrame {
         descripcion.setEditable(false);
         descripcion.setColumns(20);
         descripcion.setRows(5);
+        descripcion.setLineWrap(true);
         jScrollPane1.setViewportView(descripcion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

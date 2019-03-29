@@ -7,6 +7,7 @@ package Ventana;
 
 
 import java.sql.Date;
+import javax.swing.JOptionPane;
 import logica.RegistroUsuarioLogica;
 
 /**
@@ -306,20 +307,43 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Accion registar
-        Date fecha = new Date(Integer.parseInt(ano.getText())-1900,
-                Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText()));
-        
-        boolean error=usuLog.registrarUsuario(docId.getText(),
-                nombres.getText(), apellidos.getText(),
-                fecha, eps.getText(), direccion.getText(),
-                telefono.getText(), password.getText(),
-                tipoDi.getItemAt(tipoDi.getSelectedIndex()));
-        
-        if(!error){
-            Interfaz obj=new Interfaz();
-            obj.setVisible(true);
-            dispose();
+        try{
+            if(docId.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Es necesario un documento de identidad");
+            return;
+            }
+            if(password.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Es necesaria una contraseña");
+            return;
+            }
+            Date fecha ;
+            if(ano.getText().equals("")|| mes.getText().equals("") || dia.getText().equals("")){
+                fecha = null;
+            }
+            else{
+                fecha = new Date(Integer.parseInt(ano.getText())-1900,
+                        Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText()));
+            }
+            boolean error=usuLog.registrarUsuario(docId.getText(),
+                    nombres.getText(), apellidos.getText(),
+                    fecha, eps.getText(), direccion.getText(),
+                    telefono.getText(), password.getText(),
+                    tipoDi.getItemAt(tipoDi.getSelectedIndex()));
+
+            if(!error){
+                JOptionPane.showMessageDialog(null, "Registro exitoso");
+                Interfaz obj=new Interfaz();
+                obj.setVisible(true);
+                dispose();
+            }
+            if(error)
+                JOptionPane.showMessageDialog(null, "Registro fallido");
         }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Los datos de fecha presentan una inconsistencia");
+            return;
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
