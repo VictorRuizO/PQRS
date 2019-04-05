@@ -9,7 +9,6 @@ package Ventana;
 import java.sql.Date;
 import javax.swing.JOptionPane;
 import logica.RegistroUsuarioLogica;
-
 /**
  *
  * @author EstudianteUnivalle
@@ -309,18 +308,28 @@ public class RegistroUsuario extends javax.swing.JFrame {
         //Accion registar
         try{
             if(docId.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Es necesario un documento de identidad");
-            return;
+                JOptionPane.showMessageDialog(null, "Es necesario un documento de identidad");
+                return;
             }
             if(password.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Es necesaria una contraseña");
-            return;
+                JOptionPane.showMessageDialog(null, "Es necesaria una contraseña");
+                return;
+            }
+            if(!telefono.getText().equals("")){
+                if(!isNumeric(telefono.getText())){
+                    JOptionPane.showMessageDialog(null, "El telefono debe ser un número");                
+                    return;
+                }
             }
             Date fecha ;
             if(ano.getText().equals("")|| mes.getText().equals("") || dia.getText().equals("")){
                 fecha = null;
             }
             else{
+                if(!isNumeric(ano.getText()) || !isNumeric(mes.getText()) || !isNumeric(dia.getText())){
+                    JOptionPane.showMessageDialog(null, "La fecha debe ser numerica");
+                    return;
+                }
                 fecha = new Date(Integer.parseInt(ano.getText())-1900,
                         Integer.parseInt(mes.getText()), Integer.parseInt(dia.getText()));
             }
@@ -336,8 +345,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 dispose();
             }
             
-            if(error)
-                JOptionPane.showMessageDialog(null, "Registro fallido");
+            
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, "Los datos de fecha presentan una inconsistencia");
@@ -346,6 +354,14 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private static boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
+    }
     private void diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_diaActionPerformed

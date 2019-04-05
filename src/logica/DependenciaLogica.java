@@ -7,6 +7,7 @@ package logica;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import modelo.Dependencia;
 import persistencia.DependenciaJpaController;
 
@@ -33,6 +34,24 @@ public class DependenciaLogica {
     
     public List<Dependencia> obtenerDependencias(){
         return depCon.findDependenciaEntities(); 
+    }
+    
+    public boolean registrarDependecia(String cod, String nom){
+        Dependencia dep=new Dependencia();
+        
+        dep.setCodigo(cod);
+        dep.setNombre(nom);
+
+        try {
+            depCon.create(dep);
+            JOptionPane.showMessageDialog(null, "Dependencia registrada con exito");
+            return false;
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error al registrar dependencia");
+        }
+        
+        return true;
+        
     }
     
 }

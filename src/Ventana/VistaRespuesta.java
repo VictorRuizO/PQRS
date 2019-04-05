@@ -66,7 +66,9 @@ public class VistaRespuesta extends javax.swing.JFrame {
 
         descripcion.setEditable(false);
         descripcion.setColumns(20);
+        descripcion.setLineWrap(true);
         descripcion.setRows(5);
+        descripcion.setWrapStyleWord(true);
         descripcion.setLineWrap(true);
         jScrollPane1.setViewportView(descripcion);
 

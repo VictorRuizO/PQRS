@@ -7,8 +7,10 @@ package Ventana;
 
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import logica.AdministradorLogica;
 import logica.EncargadoLogica;
 import logica.UsuarioLogica;
+import modelo.Administrador;
 import modelo.EncargadoDependencia;
 import modelo.Usuario;
 
@@ -143,6 +145,17 @@ public class Interfaz extends javax.swing.JFrame {
                 obj.setVisible(true);
                 dispose();
             }
+        }else if(adminLog.verificarAdmin(usuario.getText())){
+            Administrador admin = adminLog.getAdmin(usuario.getText(), password.getText());
+        
+            if(admin!=null){
+                vistaAdministrador obj=new vistaAdministrador(admin);
+                obj.setVisible(true);
+                dispose();
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
         }
         
     }//GEN-LAST:event_jButtonIngresarActionPerformed
@@ -206,4 +219,5 @@ public class Interfaz extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private UsuarioLogica usuLog=new UsuarioLogica();
     private EncargadoLogica encLog=new EncargadoLogica();
+    private AdministradorLogica adminLog = new AdministradorLogica();
 }

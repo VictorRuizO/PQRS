@@ -97,7 +97,9 @@ public class responderPQRSE extends javax.swing.JFrame {
 
         descripcion.setEditable(false);
         descripcion.setColumns(20);
+        descripcion.setLineWrap(true);
         descripcion.setRows(5);
+        descripcion.setWrapStyleWord(true);
         jScrollPane3.setViewportView(descripcion);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
