@@ -262,7 +262,18 @@ public class PqrsJpaController implements Serializable {
         String consultar = "select p from Pqrs p where p.dniUsuario.dni='"+usuario+"'";
         try{
             EntityManager em = getEntityManager();
-        Query query = em.createQuery(consultar);
+            Query query = em.createQuery(consultar);
+        return (List<Pqrs>) query.getResultList();
+        }catch (NoResultException e) {
+            return null;
+        }
+    }
+    
+    public List<Pqrs> findPqrsByTipo(String tipo){
+        String consultar = "select p from Pqrs p where p.tipo='"+tipo+"'";
+        try{
+            EntityManager em = getEntityManager();
+            Query query = em.createQuery(consultar);
         return (List<Pqrs>) query.getResultList();
         }catch (NoResultException e) {
             return null;

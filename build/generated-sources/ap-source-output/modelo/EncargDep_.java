@@ -7,7 +7,7 @@ import modelo.Dependencia;
 import modelo.EncargDepPK;
 import modelo.EncargadoDependencia;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-04-04T14:00:36")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-04-06T13:02:52")
 @StaticMetamodel(EncargDep.class)
 public class EncargDep_ { 
 
