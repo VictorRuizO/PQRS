@@ -3,17 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/logica/UsuarioLogica.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/Ventana/registroDependencia.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/Ventana/RegistroUsuario.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/Ventana/realizarPQRS.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/Ventana/responderPQRSE.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/Ventana/vistaAdministrador.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/logica/RegistroUsuarioLogica.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/Ventana/Interfaz.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/logica/PqrsLogica.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/logica/DependenciaLogica.java</file>
-            <file>file:/C:/Users/digital/Documents/Datos/Universidad/Semestre6-18/Desarrollo%20de%20Software%20I/PQRS-master/src/logica/RespuestaLogica.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/Interfaz.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/VistaReporteUsuario.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/vistaAdministrador.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/logica/AdministradorLogica.java</file>
         </group>
     </open-files>
 </project-private>

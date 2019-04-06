@@ -70,6 +70,11 @@ public class vistaAdministrador extends javax.swing.JFrame {
         });
 
         jButton4.setText("Generar reporte por usuario");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Cerrar sesion");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +188,12 @@ public class vistaAdministrador extends javax.swing.JFrame {
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_registrarDependenciaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // generar reporte usuario
+        VistaReporteUsuario obj=new VistaReporteUsuario();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

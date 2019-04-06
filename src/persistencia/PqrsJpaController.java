@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import modelo.Pqrs;
 import persistencia.exceptions.NonexistentEntityException;
@@ -257,4 +258,14 @@ public class PqrsJpaController implements Serializable {
         }
     }
     
+    public List<Pqrs> findPqrsByUsuario(String usuario){
+        String consultar = "select p from Pqrs p where p.dniUsuario.dni='"+usuario+"'";
+        try{
+            EntityManager em = getEntityManager();
+        Query query = em.createQuery(consultar);
+        return (List<Pqrs>) query.getResultList();
+        }catch (NoResultException e) {
+            return null;
+        }
+    }
 }
