@@ -354,5 +354,5 @@ public class registroEncargado extends javax.swing.JFrame {
     private javax.swing.JTextField nom;
     // End of variables declaration//GEN-END:variables
     private Administrador admin;
-    private RegistroEncargadoLogica enLog;
+    private RegistroEncargadoLogica enLog = new RegistroEncargadoLogica();
 }

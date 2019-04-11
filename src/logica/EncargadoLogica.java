@@ -40,6 +40,16 @@ public class EncargadoLogica {
         return null;
     }
     
+    public EncargadoDependencia getEncargado2(String di){
+        EncargadoDependencia enc=encCont.findEncargadoDependencia(di);
+        if(enc==null)
+            JOptionPane.showMessageDialog(null, "Error, Encargado no registrado");
+
+        if(enc!=null )
+            return enc;
+        return null;
+    }
+    
     public boolean verificarEncargado(String di){
         EncargadoDependencia enc=encCont.findEncargadoDependencia(di);
         if(enc==null)
