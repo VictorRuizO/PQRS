@@ -5,6 +5,10 @@
  */
 package Ventana;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import logica.AdministradorLogica;
@@ -139,8 +143,22 @@ public class Interfaz extends javax.swing.JFrame {
             }
         }else if(encLog.verificarEncargado(usuario.getText())){
             EncargadoDependencia enc = encLog.getEncargado(usuario.getText(), password.getText());
-        
+            
+            
             if(enc!=null){
+                if(adminLog.estadoParanoico()){
+                    try {
+                        String ip;
+                        ip=InetAddress.getLocalHost().getHostAddress();
+                        if(enc.getIpAcceso()!=ip){
+                            JOptionPane.showMessageDialog(null, "Estado del sistema en paranoico. No puede acceder desdeeste equipo.");
+                            return;
+                        }
+                    } catch (UnknownHostException ex) {
+                        JOptionPane.showMessageDialog(null, "Estado del sistema en paranoico. No puede acceder desdeeste equipo.");
+                        return;
+                    }
+                }
                 vistaEncargado obj=new vistaEncargado(enc);
                 obj.setVisible(true);
                 dispose();
@@ -203,6 +221,7 @@ public class Interfaz extends javax.swing.JFrame {
                 new Interfaz().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

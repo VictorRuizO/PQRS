@@ -24,6 +24,7 @@ public class EncargDepLogica {
 
     private EncargDepJpaController endCont =new EncargDepJpaController();
     private DependenciaJpaController depCont = new DependenciaJpaController();
+    private EncargadoLogica enLog = new EncargadoLogica();
     public EncargDepLogica(){
         
     }
@@ -62,7 +63,8 @@ public class EncargDepLogica {
         List<String> docs=new ArrayList<String>();
         
         for(EncargDep e:encargs){
-            docs.add(e.getEncargadoDependencia().getDocumentoLaboral());
+            if(!docs.contains(e.getEncargDepPK().getDlEncargado()))
+                    docs.add(e.getEncargadoDependencia().getDocumentoLaboral());
         }
         
         return docs;
@@ -100,19 +102,42 @@ public class EncargDepLogica {
         
         try {
             endCont.create(encN);
-            System.out.println("4");
             endCont.edit(encV);
-            System.out.println("5");
             return false;
         
         } catch (Exception ex) {
             Logger.getLogger(EncargDepLogica.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-        //JOptionPane.showMessageDialog(null, "No se pudo reasignar");
-
         return true;
     }
     
-    
+    public boolean asignarEncargado(String codDep, String idEmp) {
+        EncargDep encN = new EncargDep();
+        EncargDepPK pkN = new EncargDepPK();
+        EncargadoDependencia endep = enLog.getEncargado2(idEmp);
+        List<Dependencia> depends = depCont.findDependenciaEntities();
+        Dependencia dep = new Dependencia();
+        for(Dependencia d:depends){
+            if(d.getCodigo().equals(codDep))
+                    dep=d;                 
+        }
+        pkN.setCodigoDep(dep.getCodigo());
+        pkN.setDlEncargado(idEmp);
+        encN.setEncargDepPK(pkN);
+        encN.setEstado("activo");
+        encN.setDependencia(dep);
+        encN.setEncargadoDependencia(endep);
+        
+        
+        try {
+            endCont.create(encN);
+            return false;
+        
+        } catch (Exception ex) {
+            Logger.getLogger(EncargDepLogica.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        return true;
+    }
 }

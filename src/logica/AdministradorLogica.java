@@ -18,6 +18,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Administrador;
 import modelo.Pqrs;
@@ -162,6 +164,23 @@ public class AdministradorLogica {
             dnis.add(u.getDni());
         }
         return dnis;
+    }
+    
+    public boolean estadoParanoico(){
+        List<Administrador> admis = adminCon.findAdministradorEntities();
+        for(Administrador a:admis){
+            if(a.getEstadoSistema())
+                return true;
+        }
+        return false;
+    }
+    
+    public void setEstadoSistema(Administrador a){
+        try {
+            adminCon.edit(a);
+        } catch (Exception ex) {
+            Logger.getLogger(AdministradorLogica.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

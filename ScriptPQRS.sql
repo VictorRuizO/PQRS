@@ -113,8 +113,8 @@ CREATE TABLE `respuesta` (
 CREATE TABLE `usuario` (
   `DNI` varchar(12) NOT NULL,
   `tipo_documento` varchar(15) NOT NULL,
-  `nombres` varchar(10) DEFAULT NULL,
-  `apellidos` varchar(10) DEFAULT NULL,
+  `nombres` varchar(20) DEFAULT NULL,
+  `apellidos` varchar(20) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   `eps` varchar(20) DEFAULT NULL,
   `direccion` varchar(15) DEFAULT NULL,

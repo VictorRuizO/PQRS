@@ -30,6 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Administrador.findByApellidos", query = "SELECT a FROM Administrador a WHERE a.apellidos = :apellidos")})
 public class Administrador implements Serializable {
 
+    @Basic(optional = false)
+    @Column(name = "estado_sistema")
+    private boolean estadoSistema;
+
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -110,6 +114,14 @@ public class Administrador implements Serializable {
     @Override
     public String toString() {
         return "modelo.Administrador[ documentoIdentidad=" + documentoIdentidad + " ]";
+    }
+
+    public boolean getEstadoSistema() {
+        return estadoSistema;
+    }
+
+    public void setEstadoSistema(boolean estadoSistema) {
+        this.estadoSistema = estadoSistema;
     }
     
 }

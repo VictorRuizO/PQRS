@@ -25,6 +25,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
         setResizable(false);
         setTitle("Administrador");
         this.adminRegistrado=admin;
+        setCombo();
     }
 
     /**
@@ -43,7 +44,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        estaSistema = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,7 +98,12 @@ public class vistaAdministrador extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Paranoico" }));
+        estaSistema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Paranoico" }));
+        estaSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                estaSistemaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Estado");
 
@@ -127,7 +133,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(64, 64, 64)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(estaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addGap(80, 80, 80)
@@ -140,7 +146,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(estaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(registrarDependencia)
@@ -203,19 +209,32 @@ public class vistaAdministrador extends javax.swing.JFrame {
         obj.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void estaSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estaSistemaActionPerformed
+        // TODO add your handling code here:
+        if(estaSistema.getSelectedIndex()==0){
+            adminRegistrado.setEstadoSistema(false);
+        }
+        else 
+            adminRegistrado.setEstadoSistema(true);
+        adminLog.setEstadoSistema(adminRegistrado);
+    }//GEN-LAST:event_estaSistemaActionPerformed
+
+    private void setCombo(){
+        if(adminLog.estadoParanoico())
+            estaSistema.setSelectedIndex(1);
+        else
+            estaSistema.setSelectedIndex(0);
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> estaSistema;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton registrarDependencia;
     // End of variables declaration//GEN-END:variables
