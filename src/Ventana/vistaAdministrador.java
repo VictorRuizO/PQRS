@@ -46,8 +46,11 @@ public class vistaAdministrador extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         estaSistema = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         registrarDependencia.setText("Registrar dependencia");
         registrarDependencia.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +58,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 registrarDependenciaActionPerformed(evt);
             }
         });
+        getContentPane().add(registrarDependencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 250, -1));
 
         jButton2.setText("Registrar encargado de dependencia");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +66,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 250, -1));
 
         jButton3.setText("Reasignar encargado de dependencia");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +74,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 250, -1));
 
         jButton4.setText("Generar reporte por usuario");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -76,6 +82,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 250, -1));
 
         jButton5.setText("Cerrar sesion");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +90,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
 
         jButton6.setText("Salir");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +98,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
         jButton7.setText("Generar reporte por tipo de solicitud");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +106,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 250, -1));
 
         estaSistema.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Paranoico" }));
         estaSistema.addActionListener(new java.awt.event.ActionListener() {
@@ -104,78 +114,29 @@ public class vistaAdministrador extends javax.swing.JFrame {
                 estaSistemaActionPerformed(evt);
             }
         });
+        getContentPane().add(estaSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 150, -1));
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Estado");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton6))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(235, 235, 235)
-                                .addComponent(jButton3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(297, 297, 297)
-                                .addComponent(jButton5))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(registrarDependencia))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jLabel1)
-                        .addGap(64, 64, 64)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(estaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(80, 80, 80)
-                                .addComponent(jButton7)))))
-                .addContainerGap(189, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton6)
-                .addGap(48, 48, 48)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(estaSistema, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(registrarDependencia)
-                .addGap(32, 32, 32)
-                .addComponent(jButton2)
-                .addGap(34, 34, 34)
-                .addComponent(jButton3)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton7))
-                .addGap(24, 24, 24)
-                .addComponent(jButton5)
-                .addGap(39, 39, 39))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoAzul.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        registroEncargado obj=new registroEncargado();
+        registroEncargado obj=new registroEncargado(adminRegistrado);
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        reasignarEncargado obj=new reasignarEncargado();
+        reasignarEncargado obj=new reasignarEncargado(adminRegistrado);
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -198,7 +159,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
 
     private void registrarDependenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarDependenciaActionPerformed
         // TODO add your handling code here:
-        registroDependencia obj=new registroDependencia();
+        registroDependencia obj=new registroDependencia(adminRegistrado);
         obj.setVisible(true);
         dispose();
     }//GEN-LAST:event_registrarDependenciaActionPerformed
@@ -236,6 +197,7 @@ public class vistaAdministrador extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton registrarDependencia;
     // End of variables declaration//GEN-END:variables
     private Administrador adminRegistrado;
