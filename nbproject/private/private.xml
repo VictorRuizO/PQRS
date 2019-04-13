@@ -4,6 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/Interfaz.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/vistaUsuario.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/VistaReporteUsuario.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/vistaEncargado.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/responderPQRSE.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/vistaAdministrador.java</file>
+            <file>file:/C:/Users/Victor/Documents/NetBeansProjects/PQRS/src/Ventana/VistaReporteSolicitud.java</file>
         </group>
     </open-files>
 </project-private>
